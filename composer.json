@@ -1,0 +1,73 @@
+{
+    "name": "webinertia/webinertia-acl",
+    "description": "laminas-permissions-acl implementation and tooling",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "webinertia",
+        "laminas-permissions-acl",
+        "access control list"
+    ],
+    "homepage": "https://github.com/webinertia/webinertia-acl/discussions",
+    "authors": [
+        {
+            "name": "Joey Smith",
+            "email": "jsmith@webinertia.net",
+            "homepage": "https://webinertia.net/"
+        }
+    ],
+    "require": {
+        "php": "~8.1.0 || ~8.2.0",
+        "laminas/laminas-component-installer": "^3.2",
+        "laminas/laminas-permissions-acl": "^2.15"
+    },
+    "require-dev": {
+        "laminas/laminas-coding-standard": "^2.4.0",
+        "phpunit/phpunit": "10.2.2",
+        "psalm/plugin-phpunit": "^0.18.4",
+        "phpstan/phpstan": "1.10.21",
+        "laminas/laminas-test": "^4.8",
+        "phpstan/extension-installer": "^1.2",
+        "slam/phpstan-laminas-framework": "^1.4"
+    },
+    "extra": {
+        "laminas": {
+            "module": "Webinertia\\Acl"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Webinertia\\Acl\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WebinertiaTest\\AclTest\\": "test/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@phpstan",
+            "@test"
+        ],
+        "cs-check": "vendor/bin/phpcs",
+        "cs-fix": "vendor/bin/phpcbf",
+        "test": "vendor/bin/phpunit",
+        "static-analysis": "vendor/bin/psalm --shepherd --stats",
+        "phpstan": "php vendor/bin/phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "cs-check": "Run coding standards checks.",
+        "cs-fix": "Automatically fix coding standard issues.",
+        "test": "Run unit tests."
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "laminas/laminas-component-installer": true,
+            "composer/package-versions-deprecated": true,
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
